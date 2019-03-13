@@ -1,10 +1,10 @@
 import React from 'react';
 import ToDo from '../ToDo/ToDo';
 
-const ToDoList = ({todos}) => {
+const ToDoList = ({todos, archiveTodo, deleteTodo}) => {
     return (
         <ul>
-            {todos.map((todo) => <ToDo key={todo.id} {...todo}/>)}
+            {todos.map((todo) => <ToDo key={todo.id} {...todo} archiveTodo={archiveTodo} deleteTodo={deleteTodo}/>)}
         </ul>
     );
 };
