@@ -14,8 +14,12 @@ const Form = ({addTodo}) => {
 
     return (
         <form onSubmit={handleSumbit}>
-            <input type="text" ref={input} />
-            <input type="submit" value="Add"/>
+            <div className="input-group mb-3">
+                <input type="text" className="form-control" placeholder="Todo" ref={input} />
+                <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" type="submit" id="button-addon2">Add</button>
+                </div>
+            </div>
         </form>
     );
 };
