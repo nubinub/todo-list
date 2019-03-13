@@ -19,7 +19,14 @@ const Filters = ({setFilter, filter}) => {
                 onClick={() => setFilter('active')} 
                 className={getClassNamesByFilter('active')}
             >
-                Active
+                To do
+            </button>
+            <button 
+                type="button" 
+                onClick={() => setFilter('done')} 
+                className={getClassNamesByFilter('done')}
+            >
+                Done
             </button>
             <button 
                 type="button" 

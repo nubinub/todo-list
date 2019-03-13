@@ -6,11 +6,11 @@ import WiredFilters from './containers/WiredFilters';
 
 const App = () => {
   return (
-    <>
+    <div className="container">
       <WiredForm />
       <WiredFilters />
       <WiredToDoList />
-    </>
+    </div>
   );
 };
 

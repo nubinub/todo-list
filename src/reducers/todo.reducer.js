@@ -1,4 +1,4 @@
-import { ADD_TODO, ARCHIVE_TODO, DELETE_TODO, SET_FILTER } from "../actions/todo.action";
+import { ADD_TODO, ARCHIVE_TODO, DELETE_TODO, SET_FILTER, COMPLETE_TODO } from "../actions/todo.action";
 
 const initialState = {
     todos: [],
@@ -22,6 +22,14 @@ const deleteTodo = (state, id) => {
     };
 };
 
+const completeTodo = (state, id) => {
+    const todos = state.todos.map((t) => t.id === id ? {...t, completed: !t.completed} : t);
+    return {
+        ...state,
+        todos,
+    };
+};
+
 const todoReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TODO:
@@ -39,6 +47,8 @@ const todoReducer = (state = initialState, action) => {
                 ...state,
                 filter: action.filter,
             };
+        case COMPLETE_TODO:
+            return completeTodo(state, action.id);
         default:
             return state;
     }
