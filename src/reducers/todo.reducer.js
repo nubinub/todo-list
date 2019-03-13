@@ -1,8 +1,9 @@
-import { ADD_TODO, ARCHIVE_TODO, DELETE_TODO } from "../actions/todo.action";
+import { ADD_TODO, ARCHIVE_TODO, DELETE_TODO, SET_FILTER } from "../actions/todo.action";
 
 const initialState = {
     todos: [],
     currentId: 1,
+    filter: 'all',
 };
 
 const archiveTodo = (state, id) => {
@@ -29,11 +30,15 @@ const todoReducer = (state = initialState, action) => {
                 todos: [...state.todos, {id: state.currentId, name: action.name}],
                 currentId: state.currentId + 1,
             };
-
         case ARCHIVE_TODO:
             return archiveTodo(state, action.id);
         case DELETE_TODO:
             return deleteTodo(state, action.id);
+        case SET_FILTER: 
+            return {
+                ...state,
+                filter: action.filter,
+            };
         default:
             return state;
     }
