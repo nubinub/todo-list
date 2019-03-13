@@ -4,7 +4,7 @@ import ToDo from '../ToDo/ToDo';
 const ToDoList = ({todos}) => {
     return (
         <ul>
-            {todos.map((todo) => <ToDo {...todo}/>)}
+            {todos.map((todo) => <ToDo key={todo.id} {...todo}/>)}
         </ul>
     );
 };
